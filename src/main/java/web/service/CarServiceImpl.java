@@ -17,10 +17,8 @@ public class CarServiceImpl implements CarService {
     public List<Car> carListPar(Integer count) {
         if (count == null) {
             return carDAO.carList();
-        } else if (count >= 2 && count <= 4) {
-                return carDAO.carListPar(count);
-            } else {
-                return carDAO.carListPar(count);
-            }
+        } else {
+            return count >= 2 && count <= 4 ? carDAO.carListPar(count) : carDAO.carList();
         }
     }
+}
